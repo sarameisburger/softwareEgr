@@ -1,16 +1,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<!-- This code is adapted from Tanya Crenshaw's code at https://github.com/crenshaw/thelibrarians/blob/master/simple/index.html -->
 
+<!-- include angular and bootstrap links -->
+<script>src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- start html -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	
+<!-- This code is adapted from Tanya Crenshaw's code at https://github.com/crenshaw/thelibrarians/blob/master/simple/index.html -->
 <head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-    <title>The Basic Bar Graph</title>
+    <title>The Basic Bar Graph 2.0</title>
     
+    <!-- we are going to want these buttons to change the data on the graph, unknown how to add that angular behavior -->
+    <div ng-controller="ButtonController">
+    	<button onclick="back()" type="button" class="btn btn-primary btn-md">Previous Video</button>
+    	<button onclick="next()" type="button" class="btn btn-primary btn-md">Next Video</button>
+    </div>
+    
+    <script>
+    	function back() {
+		alert("This button will provide the data for the previous video!");
+	}
+    </script>
+    <script>
+    	function next() {
+		alert("This button will provide the data for the next video!");
+	}
+    </script>
     <script type="text/javascript"src="http://www.google.com/jsapi"></script>
     <script type="text/javascript" src="viz.js" ></script>
-	    
+	<script type="text/javascript" src="viz-controller.js" ></script>
+   
 </head>    
 
 <body>
