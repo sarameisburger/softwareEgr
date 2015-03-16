@@ -21,10 +21,10 @@ google.setOnLoadCallback(drawChart);
 function drawChart() {
 
     // Store the data by creating a google DataTable object with
-    // two columns: Month and People Hours.
+    // two columns: Country and mil views per capita.
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Country');
-    data.addColumn('number', 'Millions of Views');
+    data.addColumn('number', 'Millions of Views per capita');
 
     // Add 8 rows with the different countries
     data.addRows([
@@ -46,13 +46,13 @@ function drawChart() {
     var options = {
         width: 1000,
         height: 563,
-	title: 'Millions of Views of Video by Country',
+	title: 'Millions of Views per capita of Video by Country',
         hAxis: {
             title: 'Country',
             gridlines: {count: 9}
         },
         vAxis: {
-            title: 'Millions of watches'
+            title: 'Millions of Views'
         },
 	legend: { 
 	    position: 'none' 
