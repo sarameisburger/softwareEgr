@@ -46,13 +46,13 @@ function drawChart() {
     var options = {
         width: 1000,
         height: 563,
-	title: 'Millions of Views of Video by Country',
+	title: 'Millions of Views per capita of Video by Country',
         hAxis: {
             title: 'Country',
             gridlines: {count: 9}
         },
         vAxis: {
-            title: 'Millions of watches'
+            title: 'Millions of Views'
         },
 	legend: { 
 	    position: 'none' 
@@ -60,9 +60,9 @@ function drawChart() {
     };
 
     // Create a new viz object using the google API -- specifically,
-    // we are going to make a column chart inside the div called ex0
+    // we are going to make a column chart inside the div called chart
     // in the html file.
-    var chart = new google.visualization.ColumnChart(document.getElementById('ex0'));
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart'));
 
     // STEP 7: SHOW THE DATA
     // Draw the chart with the supplied options.
