@@ -3,6 +3,7 @@
  *
  * This code creates a basic horizontal bar graph with fake data placed in for likes/dislikes.
  * Real data will be implemented at a later date.
+ *
  * Initial code based on an example provided in the Google Charts API
  * documentation and from Tanya Crenshaw   See:
  * https://developers.google.com/fusiontables/docs/samples/gviz_barchart and
@@ -12,6 +13,10 @@
  * @since: February 7, 2015
  * 
  */
+
+google.load('visualization', '1', {packages : ['corechart']});
+
+google.setOnLoadCallback(drawChart);
 
 //this function allows us to draw our fusion table data as a bar graph on our html page
 function drawChart() {
@@ -85,5 +90,4 @@ function drawChart() {
 // 	});
 // }
 
->>>>>>> ButtonTest
 google.setOnLoadCallback(drawVisualization);
