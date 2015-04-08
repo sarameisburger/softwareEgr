@@ -1,3 +1,4 @@
+<!--Author: Sara Meisburger -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <!-- include angular and bootstrap links -->
@@ -6,21 +7,129 @@
 
 <!-- start html -->
 <html xmlns="http://www.w3.org/1999/xhtml">
-	
+
 <!-- This code is adapted from Tanya Crenshaw's code at https://github.com/crenshaw/thelibrarians/blob/master/simple/index.html -->
-<head>
+    <head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <title>The Basic Bar Graph 2.0</title>
-    
-    <!-- we are going to want these buttons to change the data on the graph, unknown how to add that angular behavior -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="viz.js" ></script>
+    <script type="text/javascript" src="viz-controller.js" ></script>
+
+    <!-- we are going to want these buttons to change the data on the graph, unknown how to add that angular behavior
     <div ng-controller="ButtonController">
     	<button onclick="back()" type="button" class="btn btn-primary btn-md">Previous Video</button>
     	<button onclick="next()" type="button" class="btn btn-primary btn-md">Next Video</button>
     </div>
-    
-    <script>
+    -->
+    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+    <div id="title" style="text-align: center; font-size: 50px; font-family: Impact, Charcoal, sans-serif">
+        CELEBRITY SMACKDOWN
+    </div>
+    </head>
+<body>
+    <!-- making the buttons to choose the videos -->
+    <div id="wrapper">
+
+    <div id="graphBox" style="height: 0px; width: 150px; padding-left: 400px"></div>
+
+    <div id="buttonDivL" style="float: left">
+                <div id="chooseVid" style="text-align: left; padding-left: 150px">
+                Select a challenger
+                </div>
+
+            <div id="videoButtonL" style="padding-left: 150px">
+                    <table align="left" style="float:bottom">
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/iyGvqAJ.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                       <td><button type="button"><img src="http://i.imgur.com/iyGvqAJ.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/iyGvqAJ.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/iyGvqAJ.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/iyGvqAJ.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/iyGvqAJ.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/iyGvqAJ.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/iyGvqAJ.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/iyGvqAJ.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/iyGvqAJ.png" height="60" width="200"/></button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    <div id="buttonDivR" style="float: right">
+            <div id="chooseVid" style="text-align: right; padding-right: 150px">
+                Select a challenger
+            </div>
+
+            <div id="videoButtonR" style="padding-right: 150px">
+                    <table align="right" style="float:bottom">
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/sJkgqLP.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/sJkgqLP.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/sJkgqLP.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/sJkgqLP.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/sJkgqLP.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/sJkgqLP.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/sJkgqLP.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/sJkgqLP.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/sJkgqLP.png" height="60" width="200"/></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button"><img src="http://i.imgur.com/sJkgqLP.png" height="60" width="200"/></button></td>
+                    </tr>
+                    </table>
+                </div>
+        </div>
+</div>
+        <div id="winnerDeclared" style="text-align: center; font-size: 20px; padding-top: 500px">
+            The winner of the smackdown is:
+        </div>
+        <div id="winner" style="text-align: center; font-size: 40px; font-family: Impact, Charcoal, sans-serif">
+            JUSTIN BIEBER: BABY
+        </div>
+
+    </div>
+
+
+    <!--<script>
     	function back() {
 		alert("This button will provide the data for the previous video!");
 	}
@@ -29,16 +138,9 @@
     	function next() {
 		alert("This button will provide the data for the next video!");
 	}
-    </script>
-    <script type="text/javascript"src="http://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="viz.js" ></script>
-	<script type="text/javascript" src="viz-controller.js" ></script>
-   
-</head>    
 
-<body>
-
-  <div id="chart" style="height: 400px; width: 700px;"></div>
+    </script>-->
 
 </body>
+
 </html>
