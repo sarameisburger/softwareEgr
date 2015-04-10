@@ -1,3 +1,6 @@
+
+
+=======
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
@@ -9,149 +12,18 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-<!--Author: Sara Meisburger, Elise Sunderland -->
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Youtube Views Visualizer: Celebrity Smackdown</h1>
+      <h2 class="project-tagline">the modern battle</h2>
+      <a href="https://github.com/sarameisburger/softwareEgr" class="btn">View on GitHub</a>
+      <a href="https://github.com/sarameisburger/softwareEgr/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/sarameisburger/softwareEgr/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-
-<!-- include angular and bootstrap links -->
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-<!-- start html -->
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<!-- This code is adapted from Tanya Crenshaw's code at https://github.com/crenshaw/thelibrarians/blob/master/simple/index.html -->
-    <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
-    <title>The Basic Bar Graph 2.0</title>
-    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="viz.js" ></script>
-
-    <!-- we are going to want these buttons to change the data on the graph, unknown how to add that angular behavior
-    <div ng-controller="ButtonController">
-    -->
-    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-
-    <div id="title" style="text-align: center; font-size: 50px; font-family: Impact, Charcoal, sans-serif">
-        CELEBRITY SMACKDOWN
-    </div>
-    </head>
-<body>
-
-	<section class="page-header">
-		<h1 class="project-name">Youtube Views Visualizer: Celebrity Smackdown</h1>
-		<h2 class="project-tagline">the modern battle</h2>
-		<a href="https://github.com/sarameisburger/softwareEgr" class="btn">View on GitHub</a>
-		<a href="https://github.com/sarameisburger/softwareEgr/zipball/master" class="btn">Download .zip</a>
-		<a href="https://github.com/sarameisburger/softwareEgr/tarball/master" class="btn">Download .tar.gz</a>
-	</section>
-
-	<section class="main-content">
-		<h3>
+    <section class="main-content">
+      <h3>
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-    <!-- making the buttons to choose the videos -->
-    <div id="wrapper">
-
-    <div id="graphBox" style="height: 0px; width: 150px; padding-left: 400px"></div>
-
-    <div id="buttonDivL" style="float: left">
-                <div id="chooseVid" style="text-align: left; padding-left: 150px">
-                Select a challenger
-                </div>
-
-<!-- making picture buttons with appropriate imgur urls, need to implement bootstrap -->
-            <div id="videoButtonL" style="padding-left: 150px">
-                    <table align="left" style="float:bottom">
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/jfcqGLZ.png" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                       <td><button type="button"><img src="http://i.imgur.com/UFE7OcZ.png" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/iI4PHcx.png" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/e7ZW5Ec.png" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/eAGQkHG.png" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/rVDqKHl.png" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/aGvscbs.png" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/f7lXofe.jpg" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/YVfyLDx.jpg" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/zhjFEUS.jpg" height="60" width="200"/></button></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-    <div id="buttonDivR" style="float: right">
-            <div id="chooseVid" style="text-align: right; padding-right: 150px">
-                Select a challenger
-            </div>
-
-            <div id="videoButtonR" style="padding-right: 150px">
-                    <table align="right" style="float:bottom">
-                     <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/jfcqGLZ.png" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                       <td><button type="button"><img src="http://i.imgur.com/UFE7OcZ.png" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/iI4PHcx.png" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/e7ZW5Ec.png" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/eAGQkHG.png" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/rVDqKHl.png" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/aGvscbs.png" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/f7lXofe.jpg" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/YVfyLDx.jpg" height="60" width="200"/></button></td>
-                    </tr>
-                    <tr>
-                        <td><button type="button"><img src="http://i.imgur.com/zhjFEUS.jpg" height="60" width="200"/></button></td>
-                    </tr>
-                    </table>
-                </div>
-        </div>
-</div>
-        <div id="winnerDeclared" style="text-align: center; font-size: 20px; padding-top: 500px">
-            The winner of the smackdown is:
-        </div>
-        <div id="winner" style="text-align: center; font-size: 40px; font-family: Impact, Charcoal, sans-serif">
-            Justin Bieber - Baby
-        </div>
-
-    </div>
-
-</body>
-
-=======
-
-
-
+  </body>
 >>>>>>> gh-pages
 </html>
