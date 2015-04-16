@@ -258,3 +258,19 @@ a {
   margin-right: 2rem;
 
 }
+.chooseVidL{
+  float: none;
+  width: auto;
+  overflow: hidden;
+  margin-left: 2rem;
+  font-size: 30px;
+  font-family: Tahoma;
+}
+.chooseVidR{
+  width: auto;
+  float: right;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 30px;
+  font-family: Tahoma;
+}
