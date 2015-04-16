@@ -11,16 +11,19 @@
  *
  * @author: Daniel Hollowell, Elise Sunderland, Sara Meisburger
  * @since: February 7, 2015
- * 
+ *
  */
 
 google.load('visualization', '1', {packages : ['corechart']});
 
 google.setOnLoadCallback(drawChart);
 
+var buttonWidth = 350px;
+var buttonHeight = 75px;
+
 //this function allows us to draw our fusion table data as a bar graph on our html page
 function drawChart() {
-	
+
 		//create a new bargraph with the appropriate data
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Video');
@@ -36,7 +39,7 @@ function drawChart() {
     //draw the chart
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
-    
+
     var options = {
         width: 650,
         height: 500,
@@ -61,7 +64,7 @@ function drawChart() {
 
 // 	//get the uri component
 // 	var queryText = encodeURIComponent('SELECT Location, Views FROM 1vL2S3JNNUBZz42mYyHlyr-2thU2hhLBoa62WkCYa');
-	
+
 // 	//use the google api to draw the chart
 // 	google.visualization.drawChart({
 // 		containerId : 'chart',
@@ -69,7 +72,7 @@ function drawChart() {
 // 		query : 'SELECT Location, Views FROM 1vL2S3JNNUBZz42mYyHlyr-2thU2hhLBoa62WkCYa',
 // 		chartType : 'ColumnChart',
 // 		options : {
-			
+
 // 			//apologies for the title being hard coded in
 // 			title : "Millions of Views per capita by Country for Baby - Justin Bieber",
 // 			titleFontSize : 12,
