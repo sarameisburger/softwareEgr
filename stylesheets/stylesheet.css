@@ -249,10 +249,12 @@ a {
 .videoButtonL{
   float: none; /* not needed, just for clarification */
   width: auto;
-  overflow: hidden;;
+  overflow: hidden;
+  margin-left: 2rem;
 }
 .videoButtonR{
   width: 180px;
-  float: right;;
+  float: right;
+  margin-right: 2rem;
 
 }
