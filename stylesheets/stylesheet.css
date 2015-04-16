@@ -245,3 +245,14 @@ a {
 @media screen and (max-width: 42em) {
   .site-footer {
     font-size: 0.9rem; } }
+
+.videoButtonL{
+  float: none; /* not needed, just for clarification */
+  width: auto;
+  overflow: hidden;;
+}
+.videoButtonR{
+  width: 180px;
+  float: right;;
+
+}
