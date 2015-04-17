@@ -258,30 +258,37 @@ a {
   margin-right: 2rem;
 
 }
+.challengerText {
+  position: relative
+}
 .chooseVidL{
   float: none;
-  width: auto;
+  width: 275px;
+  display: inline-block;
   overflow: hidden;
   margin-left: 2rem;
   font-size: 30px;
   font-family: Tahoma;
 }
 .chooseVidR{
-  width: auto;
   float: right;
+  width: 275px;
+  display: inline-block;
   overflow: hidden;
   white-space: nowrap;
   font-size: 30px;
   font-family: Tahoma;
+}
+.buttonDiv {
+  position: relative;
 }
 .buttonDiv > div {
   position: relative:
   display: inline-block;
 }
 .buttonsL {
-  float: left;
-  position: absolute:
-  width: 100%;
+  float: left:
+  width: 275px;
   table-layout: fixed;
   border-collapse: collapse;
   text-align: left;
@@ -297,14 +304,12 @@ a {
   height: 100%;
 }
 .buttonsR {
-  float: right;
-  position: absolute;
-  width: 100%;
+  width: 275px;
+  float:right;
   table-layout: fixed;
   border-collapse: collapse;
   overflow: hidden;
   display: inline-block;
-  maring-right: 0px;
 }
 .buttonsR button {
   width: 275px;
