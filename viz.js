@@ -18,8 +18,8 @@ google.load('visualization', '1', {packages : ['corechart']});
 
 google.setOnLoadCallback(drawChart);
 
-var buttonWidth = 350px;
-var buttonHeight = 75px;
+/*var buttonWidth = 200;
+var buttonHeight = 60; */
 
 //this function allows us to draw our fusion table data as a bar graph on our html page
 function drawChart() {
