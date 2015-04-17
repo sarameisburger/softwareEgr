@@ -259,14 +259,15 @@ a {
 
 }
 .challengerText {
-  position: relative
+  position: relative;
+  color: #000000;
 }
 .chooseVidL{
   float: none;
   width: 275px;
   display: inline-block;
   overflow: hidden;
-  margin-left: 2rem;
+  margin-left: .5rem;
   font-size: 30px;
   font-family: Tahoma;
 }
@@ -293,11 +294,12 @@ a {
   border-collapse: collapse;
   text-align: left;
   display: inline-block;
-  maring-left: auto;
+  marigin-left: 1rem;
 }
 .buttonsL button {
   width: 275px;
   height: 75px;
+  margin-left: 1rem;
 }
 .buttonsL img {
   width: 100%;
@@ -310,6 +312,7 @@ a {
   border-collapse: collapse;
   overflow: hidden;
   display: inline-block;
+  margin-right: 1rem;
 }
 .buttonsR button {
   width: 275px;
