@@ -1,8 +1,7 @@
-/*
+/**
  * viz.js
  *
- * This code creates a basic horizontal bar graph with fake data placed in for likes/dislikes.
- * Real data will be implemented at a later date.
+ * This code creates the horizontal bar graphs from our fusion table. The controller will deal with how many requests we make to the server.
  *
  * Initial code based on an example provided in the Google Charts API
  * documentation and from Tanya Crenshaw   See:
