@@ -10,7 +10,7 @@
  */
 
 //make sure to use proper import statements in the html to get the angular working properly
-var viz = angular.module('graph visualization', []);
+var viz = angular.module('viz', []);
 
 //angular function for changing the data, for now this just gives an alert saying what the buttons will do.
 //look up online examples and examples of crenshaw's code to finalize.
