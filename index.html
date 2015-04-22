@@ -16,6 +16,7 @@
   <script type="text/javascript" src="viz-controller.js" ></script>
 
 </head>
+
 <body>
   <section class="page-header">
     <h1 class="project-name">Youtube Voting Visualizer: Celebrity Smackdown</h1>
@@ -28,11 +29,14 @@
       
     </section>
   </head>
+  </section>
+
   <body>
     <!-- making the buttons to choose the videos -->
-    <div id="wrapper">
-
-      <div id="graphBox" style="height: 0px; width: 150px; padding-left: 400px"></div>
+    <div id="wrapper"> <!--wrapper so left and right buttons stay on same horizontal line -->
+      <!--making a graph box to hold the buttons-->
+      <div class="graphBox"> put graph here </div>
+      <!--choose a challenger text, put in a wrapper div to keep on same horizontal level-->
       <div class = "challengerText">
         <div class="chooseVidL"> Select a challenger </div>
         <div class="chooseVidR">Select a challenger</div>
@@ -106,17 +110,11 @@
             </tr>
           </table>
     </div>
-
-
-    </div>
-    <div id="winnerDeclared" style="text-align: center; font-size: 20px; padding-top: 500px">
-      The winner of the smackdown is:
-    </div>
-    <div id="winner" style="text-align: center; font-size: 40px; font-family: Impact, Charcoal, sans-serif">
-      Justin Bieber - Baby
-    </div>
-</div>
+    <!--declaring a winner, "winnerDeclared" is set "winner" changes based on who wins-->
+    <div class="winnerDeclared"> The winner of the smackdown is:</div>
+    <div class="winner">Justin Bieber - Baby</div>
   </div>
+</div>
 
 </body>
 
