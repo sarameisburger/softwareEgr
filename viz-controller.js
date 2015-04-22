@@ -25,33 +25,63 @@ function($scope) {
 	//    Get a new chart.
 	//$scope.get = function() {
 
-		// If the view of data for the selected year hasn't been created
-		// yet, create it.
-/*
-		if (views[thisYear] === undefined) {
+	// If the view of data for the selected year hasn't been created
+	// yet, create it.
+	/*
+	if (views[thisYear] === undefined) {
 
-			var thisYear = $scope.year;
-			views[thisYear] = new google.visualization.DataView(data);
-			views[thisYear].setRows(views[thisYear].getFilteredRows([{
-				column : 2,
-				value : thisYear
-			}]));
-			views[thisYear].setColumns([0, 1]);
+	var thisYear = $scope.year;
+	views[thisYear] = new google.visualization.DataView(data);
+	views[thisYear].setRows(views[thisYear].getFilteredRows([{
+	column : 2,
+	value : thisYear
+	}]));
+	views[thisYear].setColumns([0, 1]);
 
-		}
-		// Draw the chart for selected year.
-		$scope.chart.draw(views[thisYear].toDataTable(), options);*/
-
+	}
+	// Draw the chart for selected year.
+	$scope.chart.draw(views[thisYear].toDataTable(), options);*/
 
 	//};
 
-	$scope.next = function next() {
-		alert("This button will provide the data for the next video!");
+	$scope.anaconda = function anaconda() {
+		alert("This button will provide the data for anaconda");
 	};
 
-	$scope.back = function back() {
-		alert("This button will provide the data for the previous video!");
+	$scope.wreckingBall = function wreckingBall() {
+		alert("This button will provide the data for wrecking ball");
 	};
 
+	$scope.fox = function fox() {
+		alert("This button will provide the data for what does the fox say");
+	};
+
+	$scope.tSwizz = function tSwizz() {
+		alert("This button will provide the data for shake it off");
+	};
+
+	$scope.friday = function friday() {
+		alert("This button will provide the data for friday");
+	};
+
+	$scope.kanye = function kanye() {
+		alert("This button will provide the data for bound 2");
+	};
+	
+	$scope.bass = function bass() {
+		alert("This button will provide the data for all about that bass");
+	};
+
+	$scope.baby = function baby() {
+		alert("This button will provide the data for baby");
+	};
+	
+	$scope.katy = function katy() {
+		alert("This button will provide the data for dark horse");
+	};
+
+	$scope.rickRoll = function rickRoll() {
+		alert("This button will provide the data for never gonna give you up");
+	};
 }]);
 
