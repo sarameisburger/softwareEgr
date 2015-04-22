@@ -11,105 +11,99 @@
   <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   <script type="text/javascript" src="viz.js" ></script>
 </head>
+
 <body>
   <section class="page-header">
     <h1 class="project-name">Youtube Voting Visualizer: Celebrity Smackdown</h1>
     <h2 class="project-tagline">choose one video from each sidebar to put in the "ring"
       <p> whoever has the most dislikes is the champion </p> </h2>
-      <!-- <a href="https://github.com/sarameisburger/softwareEgr" class="btn">View on GitHub</a>
-      <a href="https://github.com/sarameisburger/softwareEgr/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/sarameisburger/softwareEgr/tarball/master" class="btn">Download .tar.gz</a> -->
-    </section>
-  </head>
+  </section>
+
   <body>
     <!-- making the buttons to choose the videos -->
-    <div id="wrapper">
-
-      <div id="graphBox" style="height: 0px; width: 150px; padding-left: 400px"></div>
+    <div id="wrapper"> <!--wrapper so left and right buttons stay on same horizontal line -->
+      <!--making a graph box to hold the buttons-->
+      <div class="graphBox"> put graph here </div>
+      <!--choose a challenger text, put in a wrapper div to keep on same horizontal level-->
       <div class = "challengerText">
         <div class="chooseVidL"> Select a challenger </div>
         <div class="chooseVidR">Select a challenger</div>
       </div>
-        <!-- making picture buttons with appropriate imgur urls, need to implement bootstrap -->
-        <!--<div class="videoButtonL" style="padding-left: 150px"> -->
-<div class = "buttonDiv">
-          <table class="buttonsL">
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/jfcqGLZ.png"/></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/UFE7OcZ.png"/></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/iI4PHcx.png" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/e7ZW5Ec.png" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/eAGQkHG.png" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/rVDqKHl.png" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/aGvscbs.png" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/f7lXofe.jpg" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/YVfyLDx.jpg" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/zhjFEUS.jpg"/></button></td>
-            </tr>
-          </table>
+      <!-- making picture buttons with appropriate imgur urls, need to implement bootstrap -->
+      <div class = "buttonDiv">
+        <table class="buttonsL"> <!--left side buttons-->
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/jfcqGLZ.png"/></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/UFE7OcZ.png"/></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/iI4PHcx.png" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/e7ZW5Ec.png" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/eAGQkHG.png" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/rVDqKHl.png" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/aGvscbs.png" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/f7lXofe.jpg" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/YVfyLDx.jpg" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/zhjFEUS.jpg"/></button></td>
+          </tr>
+        </table>
 
-          <table class="buttonsR">
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/jfcqGLZ.png" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/UFE7OcZ.png" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/iI4PHcx.png" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/e7ZW5Ec.png" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/eAGQkHG.png" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/rVDqKHl.png" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/aGvscbs.png" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/f7lXofe.jpg" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/YVfyLDx.jpg" /></button></td>
-            </tr>
-            <tr>
-              <td><button type="button"><img src="http://i.imgur.com/zhjFEUS.jpg" /></button></td>
-            </tr>
-          </table>
-    </div>
-
+        <table class="buttonsR"> <!--buttons on right side-->
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/jfcqGLZ.png" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/UFE7OcZ.png" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/iI4PHcx.png" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/e7ZW5Ec.png" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/eAGQkHG.png" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/rVDqKHl.png" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/aGvscbs.png" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/f7lXofe.jpg" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/YVfyLDx.jpg" /></button></td>
+          </tr>
+          <tr>
+            <td><button type="button"><img src="http://i.imgur.com/zhjFEUS.jpg" /></button></td>
+          </tr>
+        </table>
+      </div>
 
     </div>
-    <div id="winnerDeclared" style="text-align: center; font-size: 20px; padding-top: 500px">
-      The winner of the smackdown is:
-    </div>
-    <div id="winner" style="text-align: center; font-size: 40px; font-family: Impact, Charcoal, sans-serif">
-      Justin Bieber - Baby
-    </div>
-</div>
+    <!--declaring a winner, "winnerDeclared" is set "winner" changes based on who wins-->
+    <div class="winnerDeclared"> The winner of the smackdown is:</div>
+    <div class="winner">Justin Bieber - Baby</div>
   </div>
+</div>
 
 </body>
 
