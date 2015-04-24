@@ -17,33 +17,68 @@ var viz = angular.module('viz', []);
 viz.controller('ButtonController', ['$scope',
 function($scope) {
 
-	// ************************************************************************
-	// Controller functions
-	// ************************************************************************
+	//create the chart used to animate the video information ---> do we need this if we are not animating?
+/*
+	$scope.chart = new google.visualization.BarChart(document.getElementById('graphBox'));
+
+	var options = {
+		width : 650,
+		height : 500,
+		isStacked : true,
+		horizontal : true,
+		title : "Likes vs Dislikes",
+		hAxis : {
+			title : 'in millions'
+		},
+		vAxis : {
+			title : 'Video'
+		},
+		legend : {
+			position : 'none'
+		}
+	};*/
+
+
+	//get our query data for our chart(s)
+/*
+	var query = "SELECT Video, Likes, Dislikes FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv";
+		var opts = {
+			sendMethod : 'auto'
+		};
+		var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
+
+	    // Define the variables to hold the entire fusion table,
+	    // and a collection of views, one for each year.
+	    var data;
+	    var views = {};
+	    
+	    // Send the query and handle the response by creating and
+	    // drawing the data for 2014.
+	    queryObj.setQuery(query);
+	    queryObj.send(function(e) { 
+		    
+		    data = e.getDataTable();
+*/
+
+// ************************************************************************
+// Controller functions
+// ************************************************************************
 
 	// get()
 	//    Get a new chart.
-	//$scope.get = function() {
+/*
+	$scope.get = function() {
+	
+		// Draw the chart for selected video, maybe do a function similar to crenshaws?
+		$scope.chart.draw(data.toDataTable(), options);
 
-	// If the view of data for the selected year hasn't been created
-	// yet, create it.
-	/*
-	if (views[thisYear] === undefined) {
+	};*/
 
-	var thisYear = $scope.year;
-	views[thisYear] = new google.visualization.DataView(data);
-	views[thisYear].setRows(views[thisYear].getFilteredRows([{
-	column : 2,
-	value : thisYear
-	}]));
-	views[thisYear].setColumns([0, 1]);
+	//basically what should happen is two of these functions will be called based on user interaction, and then have a corresponding stacked bar graph show up for the 
+	//2 videos. What I am unsure of right now is 1) how to make specific queries to the fusion table in order for it to give us this data for the 2 vids and
+	//2) how the number of functions being called should be specified. Is it possible to differentiate from left and right sides?
 
-	}
-	// Draw the chart for selected year.
-	$scope.chart.draw(views[thisYear].toDataTable(), options);*/
-
-	//};
-
+	//when this function is executed, the data in the table will be provided for anaconda
 	$scope.anaconda = function anaconda() {
 		alert("This button will provide the data for anaconda");
 	};
@@ -67,7 +102,7 @@ function($scope) {
 	$scope.kanye = function kanye() {
 		alert("This button will provide the data for bound 2");
 	};
-	
+
 	$scope.bass = function bass() {
 		alert("This button will provide the data for all about that bass");
 	};
@@ -75,7 +110,7 @@ function($scope) {
 	$scope.baby = function baby() {
 		alert("This button will provide the data for baby");
 	};
-	
+
 	$scope.katy = function katy() {
 		alert("This button will provide the data for dark horse");
 	};
