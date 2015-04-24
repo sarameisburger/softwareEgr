@@ -1,70 +1,108 @@
 /*
  * viz.js
  *
- * This code creates a basic bar graph with fake data as a proof of 
+ * This code creates a basic bar graph with fake data as a proof of
  * concept. More "Real" data will be put in at a later date.
  *
  * Initial code based on an example provided in the Google Charts API
  * documentation and from Tanya Crenshaw   See:
- * https://developers.google.com/chart/interactive/docs/gallery/columnchart#Examples
- * and
- * https://github.com/crenshaw/thelibrarians in simple/vis.js
+ * https://developers.google.com/fusiontables/docs/samples/gviz_barchart and
+ * https://github.com/crenshaw/thelibrarians in public/ui.js
  *
- * @author: Daniel Hollowell
+ * @author: Daniel Hollowell, Elise Sunderland
  * @since: February 7, 2015
  */
 
-google.load('visualization', '1', {packages: ['corechart']});
+google.load('visualization', '1', {
+	packages : ['corechart']
+});
 
-google.setOnLoadCallback(drawChart);
+//this function allows us to draw our fusion table data as a bar graph on our html page
 
-function drawChart() {
+function drawVisualization() {
+	//get the uri component
+	//var queryText = encodeURIComponent('SELECT Location, Views FROM 1vL2S3JNNUBZz42mYyHlyr-2thU2hhLBoa62WkCYa');
+			
+	
+	
+	
+	
+	
+	
+	//use the google api to draw the chart
+	google.visualization.drawChart({
+		containerId : 'chart',
+		dataSourceUrl : 'https://www.google.com/fusiontables/gvizdata?tq=',
+		query : 'SELECT Video, Likes, Dislikes FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv',
+		//query : 'SELECT  Video, Dislikes, WHERE 'Likes < 100000', FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv',
+		chartType : 'BarChart',
+		
+		options : {
+			
+			//apologies for the title being hard coded in
+			title : "Millions of Views per capita by Country for Baby - Justin Bieber",
+			titleFontSize : 12,
+			isStacked: true,
+			bar : {
+				"groupWidth" : "95%"
+			},
+			vAxis : {
+				title : "Millions of Views",
 
-    // Store the data by creating a google DataTable object with
-    // two columns: Month and People Hours.
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Country');
-    data.addColumn('number', 'Millions of Views');
-
-    // Add 8 rows with the different countries
-    data.addRows([
-        ['USA', 35.8],
-		['South Africa', 3.8],
-		['UK', 18.5],
-		['France', 6.5],
-		['India', 2.9],
-        ['Brazil', 8.8],
-        ['Japan', 2.3],
-		['South Korea', 8.5],
-        ['Russia', 4.5],
-        		
-        ]);
-
-    // Set the options for the chart to be drawn.  This include the
-    // width, height, title, horizontal axis, vertical axis.  Finally
-    // turn off the legend.
-    var options = {
-        width: 1000,
-        height: 563,
-	title: 'Millions of Views of Video by Country',
-        hAxis: {
-            title: 'Country',
-            gridlines: {count: 9}
-        },
-        vAxis: {
-            title: 'Millions of watches'
-        },
-	legend: { 
-	    position: 'none' 
-	}
-    };
-
-    // Create a new viz object using the google API -- specifically,
-    // we are going to make a column chart inside the div called ex0
-    // in the html file.
-    var chart = new google.visualization.ColumnChart(document.getElementById('ex0'));
-
-    // STEP 7: SHOW THE DATA
-    // Draw the chart with the supplied options.
-    chart.draw(data, options);
+			},
+			hAxis : {
+				title : "Country",
+			},
+			legend : {
+				position : "none"
+			}
+		}
+	});
 }
+function drawFromData(){
+var data;
+		var options = {	
+			
+			//apologies for the title being hard coded in
+			title : "Drawn From Chart",
+			titleFontSize : 12,
+			isStacked: true,
+			bar : {
+				"groupWidth" : "95%"
+			},
+			vAxis : {
+				title : "Millions of Views",
+
+			},
+			hAxis : {
+				title : "Country",
+			},
+			legend : {
+				position : "none"
+			}
+		}
+		
+		var query =  "SELECT Video, Likes, Dislikes FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv";
+		var opts = {sendMethod: 'auto'};
+		var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
+		
+
+		var views = {};
+		
+		queryObj.setQuery(query);
+	    queryObj.send(function(e) { 
+		    
+		    data = e.getDataTable();
+			});
+		
+		
+		
+		var chart = new google.charts.Bar(document.getElementById('dual_x_div'));
+		chart.draw(data, nil);
+		google.visualization.drawChart(data,options);
+		
+		
+		
+}
+google.setOnLoadCallback(drawVisualization);
+//google.setOnLoadCallback(drawFromData);
