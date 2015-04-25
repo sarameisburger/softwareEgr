@@ -259,12 +259,12 @@ a {
 
 }
 .challengerText {
-  position: relative;
+  text-align: center;
   color: #000000;
 }
 .chooseVidL{
   float: none;
-  width: 275px;
+  width: 100%;
   display: inline-block;
   overflow: hidden;
   margin-left: 2rem;
@@ -282,24 +282,28 @@ a {
 }
 .buttonDiv {
   position: relative;
+  text-align: center;
 }
 .buttonDiv > div {
   position: relative:
   display: inline-block;
+  text-align: center;
 }
 .buttonsL {
-  float: left:
-  width: 275px;
+  float: center:
+  width: 50%;
   table-layout: fixed;
   border-collapse: collapse;
-  text-align: left;
+  text-align: center;
   display: inline-block;
-  marigin-left: 1rem;
+  marigin-left: auto;
+  margin-right: auto;
 }
 .buttonsL button {
-  width: 275px;
-  height: 75px;
+  width: 225px;
+  height: 150px;
   margin-left: 1rem;
+  float: center;
 }
 .buttonsL img {
   width: 100%;
@@ -315,8 +319,8 @@ a {
   margin-right: 1rem;
 }
 .buttonsR button {
-  width: 275px;
-  height: 75px;
+  width: 225px;
+  height: 150px;
   margin-right: 0px;
 }
 .buttonsR img {
@@ -331,4 +335,14 @@ a {
   text-align: center;
   font-size: 40px;
   font-family: Impact, Charcoal, sans-serif;
+}
+.buttonsL button:visited{
+    border: 5px solid red;
+}
+
+.buttonsR button:visited{
+    border: 5px solid red;
+}
+.cbox {
+  margin-left: 1rem;
 }
