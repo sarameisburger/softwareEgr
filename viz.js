@@ -29,8 +29,6 @@ function drawChart() {
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
     var options = {
-        width: windowWidth / 2,
-        height: windowHeight / 2,
         hAxis: {
             title: 'Likes vs. Dislikes in Millions'
         },
@@ -61,67 +59,49 @@ function drawChart() {
         var colNums = translateToColNums(strs, view);
         view.setColumns(colNums);
 
-        // figure out the colors for the bars
-        // first make an array of 5 shades of gray
-        var colorArr = ['#c0c0c0', '#b0b0b0', '#a0a0a0', '#909090', '#808080'];
-        
-        // then loop through columns and see if we have a green lane
-        for (var i = 0; i < colNums.length; i++)
-        {
-            if(isGreenLane(strs[i]))
-            {
-                //set the array at i to green
-                colorArr[i] = '#00cc00';
-            }
-        }
-        options.colors = colorArr;
-
-        // only show headers and rows for the year (not total)
+        // only show headers and rows for the videos
         view.setRows([0,1,2,3]);
 
         // if nothing is selected, make a blank column and hide the legend so that a blank graph will be displayed
         if(colNums.length < 2)
         {
-            data = google.visualization.arrayToDataTable([
-                ['Year', 'dummy'],
-                ['2010', 0],
-                ['2011', 0],
-                ['2012', 0],
-                ['2013', 0]
+            fakeData = google.visualization.arrayToDataTable([
+                ['Video', 'dummy likes', 'dummy dislikes'],
+                ['Video 1', 0, 0],
+           		['Video 2', 0, 0],
                 ]);
             options.legend = {position: 'none'};
             options.vAxis.minValue = 0;
             options.vAxis.maxValue = 10;
-            view = new google.visualization.DataView(data);
+            view = new google.visualization.DataView(fakeData);
         }
 
         // draw the view
-        var chart = new google.visualization.ColumnChart(document.getElementById('graphBox'));
+        var chart = new google.visualization.BarChart(document.getElementById('viz_div));
         chart.draw(view.toDataTable(), options);
 
     })
 }
 
-function isGreenLane(name)
-{
-    if(name == 'Broadway' || name == 'Cully Boulevard' || name == 'Moody Avenue' || name == 'Multnomah Street')
-    {
-        return true;
-    }
-    return false;
-}
-
-
+/**
+ * getCheckedBoxes()
+ * 
+ *  this function finds the boxes that are checked on the page, 
+ * helps query the fusion table to only the two checked videos.
+ * 
+ */
 function getCheckedBoxes()
 {
     var strArr = [];
+    
     //retrieve all boxes
     var boxList = document.getElementsByClassName("cbox");
 
-    //make sure only 5 are checked
+    //make sure only 2 are checked
     var counter = 0;
     for (var i = 0; i < boxList.length; i++)
-    {//keep a count of the number of checked boxes
+    {
+    	//keep a count of the number of checked boxes
         if(boxList[i].checked)
         {
             strArr[strArr.length] = boxList[i].name;
@@ -130,21 +110,30 @@ function getCheckedBoxes()
     return strArr;
 }
 
+/**
+ * translateToColNums
+ * 
+ * 
+ * This function should return the total number of columns for our bar graph
+ *  
+ * @param {Object} array - the array of names that have their boxes checked
+ * @param {Object} view - the view we are working with to draw on
+ */
 function translateToColNums(array, view)
 {
-    // initialize variables
+    //initialize variables
     var str;
     var colNum;
-    // initialize newArray so that the year column will be first
+    // initialize newArray so that the video column will be first
     var newArray = [0];
 
-    //loop through the array of strings
+    //loop through the array of video names
     for(var i = 0; i < array.length; i++)
     {
         str = array[i];
         colNum = -1;
 
-        //get the column number for a given string
+        //get the column number for a given string, aka the checked box
         for(var j = 0; j < view.getNumberOfColumns(); j++)
         {
             if(str == view.getColumnLabel(j))
@@ -153,7 +142,7 @@ function translateToColNums(array, view)
             }
         }
 
-        //if we found it, add it to the newArray
+        //if we found it, add it to the new array
         if(colNum != -1)
         {
             newArray[newArray.length] = colNum;
