@@ -19,7 +19,8 @@ google.setOnLoadCallback(drawChart);
 
 function drawChart() {
 
-    // Get the whole Fusion table
+    // Get the whole Fusion table, pull the video name, likes and dislikes.
+    
     var query = "SELECT Video, Likes, Dislikes FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv";
     var opts = { sendMethod: 'auto' };
     var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
@@ -28,20 +29,27 @@ function drawChart() {
     // width, height, title, horizontal axis, vertical axis.
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
-    var options = {
-        hAxis: {
-            title: 'Likes vs. Dislikes in Millions'
-        },
-        vAxis: {
-            title: 'Videos'
-        },
-        legend: {
-            position: 'right'
-        }
-    };
+	    var options = {	
+		title : "Likes vs. Dislikes for Popular Music Videos",
+		titleFontSize : 12,
+		isStacked: true,
+		bar : {
+		    "groupWidth" : "95%"
+		},
+		vAxis : {
+		    title : "Video",
+		    
+		},
+		hAxis : {
+		    title : "Likes vs. Dislikes",
+		},
+		legend : {
+		    position : "none"
+		}
+	    };
 
     // Define variables to hold the entire fusion table
-    // and a collection of views, one for each video?
+    // and a collection of views, one for each video
     var data;
     var view;
 
@@ -60,7 +68,7 @@ function drawChart() {
         view.setColumns(colNums);
 
         // only show headers and rows for the videos
-        view.setRows([0,1,2,3]);
+        view.setRows([0,1]);
 
         // if nothing is selected, make a blank column and hide the legend so that a blank graph will be displayed
         if(colNums.length < 2)
@@ -77,7 +85,7 @@ function drawChart() {
         }
 
         // draw the view
-        var chart = new google.visualization.BarChart(document.getElementById('viz_div));
+        var chart = new google.visualization.BarChart(document.getElementById('viz_div'));
         chart.draw(view.toDataTable(), options);
 
     })
