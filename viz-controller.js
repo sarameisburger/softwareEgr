@@ -9,10 +9,12 @@
  * @date 4/20/15
  */
 
+/*
 google.load('visualization', '1', {packages: ['corechart']});
 google.setOnLoadCallback(function() {
 	angular.bootstrap(document.body, ['viz']);
-    });
+    });*/
+
 
 //make sure to use proper import statements in the html to get the angular working properly
 var viz = angular.module('viz', []);
@@ -23,6 +25,7 @@ viz.controller('ButtonController', ['$scope',
 function($scope) {
 
 	    // Create the chart object
+/*
 	    $scope.chart= new google.visualization.BarChart(document.getElementById('viz_div'));    
 	    var data;
 
@@ -62,6 +65,7 @@ function($scope) {
 		    
 		    $scope.chart.draw(data, options);
 		});
+*/
 
 
 // ************************************************************************

@@ -5,7 +5,8 @@ function checkBoxLimit(){
 	//make sure only 2 are checked
 	var counter = 0;
 	for (var i = 0; i < boxList.length; i++)
-	{//keep a count of the number of checked boxes
+	{
+		//keep a count of the number of checked boxes
 		if(boxList[i].checked)
 		{
 			counter++;
@@ -15,7 +16,8 @@ function checkBoxLimit(){
 	//make sure that unchecking the 2nd box will enable the rest of the buttons
 	var disable;
 	if(counter >= 2)
-	{//disable all other boxes
+	{
+		//disable all other boxes
 		disable = true;
 	} else {
 		disable = false;
