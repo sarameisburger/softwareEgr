@@ -68,8 +68,8 @@ function drawChart() {
         var colNums = translateToColNums(strs, view);
         view.setColumns(colNums);
 
-        // only show headers and rows for the videos
-        view.setRows([0,1]);
+        // only show headers and rows for the vids, likes, dislikes?
+        view.setRows([0,1, 2]);
 
         // if nothing is selected, make a blank column and hide the legend so that a blank graph will be displayed
         if(colNums.length < 2)
