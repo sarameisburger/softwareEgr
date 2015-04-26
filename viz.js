@@ -33,6 +33,7 @@ function drawChart() {
 		title : "Likes vs. Dislikes for Popular Music Videos",
 		titleFontSize : 12,
 		isStacked: true,
+		horizontal: true,
 		bar : {
 		    "groupWidth" : "95%"
 		},
@@ -99,13 +100,15 @@ function drawChart() {
                 ]);
             options.legend = {position: 'none'};
             options.vAxis.minValue = 0;
-            options.vAxis.maxValue = 10;
+            options.vAxis.maxValue = 100000;
             view = new google.visualization.DataView(fakeData);
         }
 
+
         // draw the view
         var chart = new google.visualization.BarChart(document.getElementById('viz_div'));
-        chart.draw(view.toDataTable(), options);
+        
+        chart.draw(view, options);
 
     })
 }
@@ -115,7 +118,12 @@ function drawChart() {
  *
  *  this function finds the boxes that are checked on the page,
  * helps query the fusion table to only the two checked videos.
+<<<<<<< HEAD
  *
+=======
+ * 
+ * returns an array
+>>>>>>> FETCH_HEAD
  */
 function getCheckedBoxes()
 {
@@ -131,6 +139,7 @@ function getCheckedBoxes()
     	//keep a count of the number of checked boxes
         if(boxList[i].checked)
         {
+        	//make strArr the same as the box list
             strArr[strArr.length] = boxList[i].name;
         }
     }

@@ -9,10 +9,12 @@
  * @date 4/20/15
  */
 
+/*
 google.load('visualization', '1', {packages: ['corechart']});
 google.setOnLoadCallback(function() {
 	angular.bootstrap(document.body, ['viz']);
-    });
+    });*/
+
 
 //make sure to use proper import statements in the html to get the angular working properly
 var viz = angular.module('viz', []);
@@ -23,7 +25,12 @@ viz.controller('ButtonController', ['$scope',
 function($scope) {
 
 	    // Create the chart object
+
 	    $scope.chart= new google.visualization.BarChart(document.getElementById('viz_div'));
+
+/*
+	    $scope.chart= new google.visualization.BarChart(document.getElementById('viz_div'));
+>>>>>>> FETCH_HEAD
 	    var data;
 
 	    // Specify the options for the chart
@@ -62,6 +69,7 @@ function($scope) {
 
 		    $scope.chart.draw(data, options);
 		});
+*/
 
 
 // ************************************************************************
@@ -74,7 +82,7 @@ function($scope) {
 
 	//when this function is executed, the data in the table will be provided for anaconda
 	$scope.anaconda = function anaconda() {
-		'anaconda'.checked = true;
+		alert("This button will provide the data for anaconda ball");
 	};
 
 	$scope.wreckingBall = function wreckingBall() {
