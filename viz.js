@@ -53,7 +53,7 @@ function drawChart() {
 
         data = e.getDataTable();
 		console.log(data);
-		
+
         view = new google.visualization.DataView(data);
 
         // set columns of the view based on which buttons are selected
@@ -64,7 +64,7 @@ function drawChart() {
         // figure out the colors for the bars
         // first make an array of 5 shades of gray
         var colorArr = ['#c0c0c0', '#b0b0b0', '#a0a0a0', '#909090', '#808080'];
-        
+
         // then loop through columns and see if we have a green lane
         for (var i = 0; i < colNums.length; i++)
         {
