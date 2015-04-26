@@ -1,98 +1,3 @@
-// /**
-//  * viz.js
-//  *
-//  * This code creates the horizontal bar graphs from our fusion table. The controller will deal with how many requests we make to the server.
-//  *
-//  * Initial code based on an example provided in the Google Charts API
-//  * documentation and from Tanya Crenshaw   See:
-//  * https://developers.google.com/fusiontables/docs/samples/gviz_barchart and
-//  * https://github.com/crenshaw/thelibrarians in public/ui.js
-//  *
-//  * @author: Daniel Hollowell, Elise Sunderland, Sara Meisburger
-//  * @since: February 7, 2015
-//  *
-//  */
-//
-// google.load('visualization', '1', {packages : ['corechart']});
-//
-// google.setOnLoadCallback(drawChart);
-//
-// /*var buttonWidth = 200;
-// var buttonHeight = 60; */
-//
-// //this function allows us to draw our fusion table data as a bar graph on our html page
-// function drawChart() {
-//
-// 		//create a new bargraph with the appropriate data
-//         var data = new google.visualization.DataTable();
-//         data.addColumn('string', 'Video');
-//         data.addColumn('number', 'Likes')
-//         data.addColumn('number', 'Dislikes');
-//
-// //right now this is hardcoded, we need to get the fusion table in here
-//         data.addRows([
-//         ['Baby', 2.8, 4],
-//         ['Shake it Off', 2.8, .3]
-//       ]);
-//
-//     //draw the chart
-//     var windowWidth = window.innerWidth;
-//     var windowHeight = window.innerHeight;
-//
-//     var options = {
-//         width: 650,
-//         height: 500,
-//         isStacked: true,
-//         horizontal: true,
-//     title:"Likes vs Dislikes",
-//         hAxis: {
-//             title: 'in millions'
-//         },
-//         vAxis: {
-//             title: ''
-//         },
-//         legend: {
-//             position: 'none'
-//         }
-//     };
-//      var chart = new google.visualization.BarChart(document.getElementById('graphBox'));
-//
-//      //draw the chart
-//      chart.draw(data,options);
-// }
-//
-// // 	//get the uri component
-// // 	var queryText = encodeURIComponent('SELECT Location, Views FROM 1vL2S3JNNUBZz42mYyHlyr-2thU2hhLBoa62WkCYa');
-//
-// // 	//use the google api to draw the chart
-// // 	google.visualization.drawChart({
-// // 		containerId : 'chart',
-// // 		dataSourceUrl : 'https://www.google.com/fusiontables/gvizdata?tq=',
-// // 		query : 'SELECT Location, Views FROM 1vL2S3JNNUBZz42mYyHlyr-2thU2hhLBoa62WkCYa',
-// // 		chartType : 'ColumnChart',
-// // 		options : {
-//
-// // 			//apologies for the title being hard coded in
-// // 			title : "Millions of Views per capita by Country for Baby - Justin Bieber",
-// // 			titleFontSize : 12,
-// // 			bar : {
-// // 				"groupWidth" : "95%"
-// // 			},
-// // 			vAxis : {
-// // 				title : "Millions of Views",
-//
-// // 			},
-// // 			hAxis : {
-// // 				title : "Country",
-// // 			},
-// // 			legend : {
-// // 				position : "none"
-// // 			}
-// // 		}
-// // 	});
-// // }
-//
-// google.setOnLoadCallback(drawVisualization);
 /*
  * viz.js
  *
@@ -103,8 +8,8 @@
  * https://developers.google.com/chart/interactive/docs/gallery/columnchart#Examples
  * https://github.com/crenshaw/thelibrarians/tree/master/simple
  *
- * @author: Casey Sigelmann
- * @since: April 21, 2015
+ * @author: Elise Sunderland, Sara Meisburger, Casey Siegelman
+ * @since: April 25, 2015
  */
 
 google.load('visualization', '1', { packages: ['corechart'] });
@@ -115,7 +20,7 @@ google.setOnLoadCallback(drawChart);
 function drawChart() {
 
     // Get the whole Fusion table
-    var query = "SELECT * FROM 1UZvX_REFzOYcCSvFO4ynGV3en00sJ3h3OQHmMCXh";
+    var query = "SELECT Video, Likes, Dislikes FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv";
     var opts = { sendMethod: 'auto' };
     var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
 
@@ -127,7 +32,7 @@ function drawChart() {
         width: windowWidth / 2,
         height: windowHeight / 2,
         hAxis: {
-            title: 'Proportion'
+            title: 'Likes vs. Dislikes in Millions'
         },
         vAxis: {
             title: 'Videos'
@@ -138,7 +43,7 @@ function drawChart() {
     };
 
     // Define variables to hold the entire fusion table
-    // and a collection of views, one for each street
+    // and a collection of views, one for each video?
     var data;
     var view;
 
@@ -147,7 +52,8 @@ function drawChart() {
     queryObj.send(function (e) {
 
         data = e.getDataTable();
-
+		console.log(data);
+		
         view = new google.visualization.DataView(data);
 
         // set columns of the view based on which buttons are selected
@@ -158,6 +64,7 @@ function drawChart() {
         // figure out the colors for the bars
         // first make an array of 5 shades of gray
         var colorArr = ['#c0c0c0', '#b0b0b0', '#a0a0a0', '#909090', '#808080'];
+        
         // then loop through columns and see if we have a green lane
         for (var i = 0; i < colNums.length; i++)
         {
