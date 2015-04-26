@@ -25,12 +25,16 @@ viz.controller('ButtonController', ['$scope',
 function($scope) {
 
 	    // Create the chart object
+
+	    $scope.chart= new google.visualization.BarChart(document.getElementById('viz_div'));
+
 /*
-	    $scope.chart= new google.visualization.BarChart(document.getElementById('viz_div'));    
+	    $scope.chart= new google.visualization.BarChart(document.getElementById('viz_div'));
+>>>>>>> FETCH_HEAD
 	    var data;
 
 	    // Specify the options for the chart
-	    var options = {	
+	    var options = {
 		title : "Likes vs. Dislikes for Popular Music Videos",
 		titleFontSize : 12,
 		isStacked: true,
@@ -39,7 +43,7 @@ function($scope) {
 		},
 		vAxis : {
 		    title : "Video",
-		    
+
 		},
 		hAxis : {
 		    title : "Likes vs. Dislikes",
@@ -48,21 +52,21 @@ function($scope) {
 		    position : "none"
 		}
 	    };
-	    
+
 	    var query =  "SELECT Video, Likes, Dislikes FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv";
 	    var opts = {sendMethod: 'auto'};
 	    var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
-	    	    
+
 	    var views = {};
-	    
+
 	    queryObj.setQuery(query);
-	    
+
 	    // Do the work of getting the initial graph.
-	    queryObj.send(function(e) { 
-		    
+	    queryObj.send(function(e) {
+
 		    data = e.getDataTable();
 		    console.log(data);
-		    
+
 		    $scope.chart.draw(data, options);
 		});
 */
@@ -72,19 +76,19 @@ function($scope) {
 // Controller functions
 // ************************************************************************
 
-	//basically what should happen is two of these functions will be called based on user interaction, and then have a corresponding stacked bar graph show up for the 
+	//basically what should happen is two of these functions will be called based on user interaction, and then have a corresponding stacked bar graph show up for the
 	//2 videos. What I am unsure of right now is 1) how to make specific queries to the fusion table in order for it to give us this data for the 2 vids and
 	//2) how the number of functions being called should be specified. Is it possible to differentiate from left and right sides?
 
 	//when this function is executed, the data in the table will be provided for anaconda
 	$scope.anaconda = function anaconda() {
-		alert("This button will provide the data for anaconda");
+		alert("This button will provide the data for anaconda ball");
 	};
 
 	$scope.wreckingBall = function wreckingBall() {
 		alert("This button will provide the data for wrecking ball");
 	};
-	
+
 	$scope.fox = function fox() {
 		alert("This button will provide the data for what does the fox say");
 	};
@@ -117,4 +121,3 @@ function($scope) {
 		alert("This button will provide the data for never gonna give you up");
 	};
 }]);
-

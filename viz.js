@@ -20,7 +20,7 @@ google.setOnLoadCallback(drawChart);
 function drawChart() {
 
     // Get the whole Fusion table, pull the video name, likes and dislikes.
-    
+
     var query = "SELECT Video, Likes, Dislikes FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv";
     var opts = { sendMethod: 'auto' };
     var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
@@ -29,7 +29,7 @@ function drawChart() {
     // width, height, title, horizontal axis, vertical axis.
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
-	    var options = {	
+	    var options = {
 		title : "Likes vs. Dislikes for Popular Music Videos",
 		titleFontSize : 12,
 		isStacked: true,
@@ -39,7 +39,7 @@ function drawChart() {
 		},
 		vAxis : {
 		    title : "Video",
-		    
+
 		},
 		hAxis : {
 		    title : "Likes vs. Dislikes",
@@ -60,7 +60,7 @@ function drawChart() {
 
         data = e.getDataTable();
 		console.log(data);
-		
+
         view = new google.visualization.DataView(data);
 
         // set columns of the view based on which buttons are selected
@@ -96,16 +96,14 @@ function drawChart() {
 
 /**
  * getCheckedBoxes()
- * 
- *  this function finds the boxes that are checked on the page, 
+ *
+ *  this function finds the boxes that are checked on the page,
  * helps query the fusion table to only the two checked videos.
- * 
- * returns an array
  */
 function getCheckedBoxes()
 {
     var strArr = [];
-    
+
     //retrieve all boxes
     var boxList = document.getElementsByClassName("cbox");
 
@@ -125,10 +123,10 @@ function getCheckedBoxes()
 
 /**
  * translateToColNums
- * 
- * 
+ *
+ *
  * This function should return the total number of columns for our bar graph
- *  
+ *
  * @param {Object} array - the array of names that have their boxes checked
  * @param {Object} view - the view we are working with to draw on
  */

@@ -2,55 +2,55 @@
 <!DOCTYPE html>
 <html lang="en-us" ng-app="viz">
 <head>
-  <meta charset="UTF-8">
-  <title>Celebrity Smackdown</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>Celebrity Smackdown</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+<link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+<link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
 
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
-  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-  <script type="text/javascript" src="viz.js" ></script>
-  <script type="text/javascript" src="viz-controller.js" ></script>
-  <script type="text/javascript" src="checkBox.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="viz-controller.js" ></script>
+<script type="text/javascript" src="checkBox.js"></script>
+
 
 </head>
 
 <body>
-  <section class="page-header">
-    <h1 class="project-name">Youtube Voting Visualizer: Celebrity Smackdown </h1>
-    <h2 class="project-tagline">Select two videos to put in the "ring"
-      <p> Whoever has the most dislikes is the smackdown champion </p> </h2>
+<section class="page-header">
+<h1 class="project-name">Youtube Voting Visualizer: Celebrity Smackdown </h1>
+<h2 class="project-tagline">Select two videos to put in the "ring"
+<p> Whoever has the most dislikes is the smackdown champion </p> </h2>
 
-      <!-- <a href="https://github.com/sarameisburger/softwareEgr" class="btn">View on GitHub</a>
-      <a href="https://github.com/sarameisburger/softwareEgr/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/sarameisburger/softwareEgr/tarball/master" class="btn">Download .tar.gz</a> -->
+<!-- <a href="https://github.com/sarameisburger/softwareEgr" class="btn">View on GitHub</a>
+<a href="https://github.com/sarameisburger/softwareEgr/zipball/master" class="btn">Download .zip</a>
+<a href="https://github.com/sarameisburger/softwareEgr/tarball/master" class="btn">Download .tar.gz</a> -->
 
-    </section>
-  </head>
-  </section>
+</section>
+</head>
+</section>
 
-  <body>
-    <!-- making the buttons to choose the videos -->
-    <div id="wrapper"> <!--wrapper so left and right buttons stay on same horizontal line -->
-    	
-      <!--making a graph box to hold the buttons-->
-      <!--choose a challenger text, put in a wrapper div to keep on same horizontal level-->
-      <div class = "challengerText">
-        <div class="chooseVidL"> Select Two Challengers </div>
-        <!-- <div class="chooseVidR">Select a challenger</div> -->
-      </div>
-       
-        <!-- making picture buttons with appropriate imgur urls, need to implement bootstrap -->
-        <!--<div class="videoButtonL" style="padding-left: 150px"> -->
-<div class = "buttonDiv" ng-controller='ButtonController'>
+<body>
+  <!-- making the buttons to choose the videos -->
+  <div id="wrapper"> <!--wrapper so left and right buttons stay on same horizontal line -->
 
-  <button class="btn">button</button>
+    <!--making a graph box to hold the buttons-->
+    <!--choose a challenger text, put in a wrapper div to keep on same horizontal level-->
+    <div class = "challengerText">
+      <div class="chooseVidL"> Select Two Challengers </div>
+      <!-- <div class="chooseVidR">Select a challenger</div> -->
+    </div>
 
-<div class="content"></div>
+    <!-- making picture buttons with appropriate imgur urls, need to implement bootstrap -->
+    <!--<div class="videoButtonL" style="padding-left: 150px"> -->
+    <div class = "buttonDiv" ng-controller='ButtonController'>
+
+      <button class="btn">button</button>
+
+      <div class="content"></div>
 
       <table class="buttonsL">
 
@@ -82,15 +82,16 @@
             <td><input type="checkbox" class="cbox" name="Never Gonna Give You Up" onclick="checkBoxLimit()">Rick Roll: Never Gonna Give You Up</input></td>
 
           </table>
+
+      </div>
+
+      <div id="viz_div" style="height: 700px; width: 1600px;"></div>
+
+      <!--declaring a winner, "winnerDeclared" is set "winner" changes based on who wins-->
+      <div class="winnerDeclared"> The winner of the smackdown is:</div>
+      <div class="winner">Justin Bieber - Baby</div>
     </div>
-    
-    <div id="viz_div" style="height: 700px; width: 1600px;"></div>
-    
-    <!--declaring a winner, "winnerDeclared" is set "winner" changes based on who wins-->
-    <div class="winnerDeclared"> The winner of the smackdown is:</div>
-    <div class="winner">Justin Bieber - Baby</div>
   </div>
-</div>
 
 </body>
 
@@ -100,4 +101,4 @@
   <h3>
     <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>YVV.</h3>
   </body>
-  </html>
+  </html> -->
