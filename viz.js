@@ -19,10 +19,6 @@ var strs = getCheckedBoxes();
 
 function drawChart() {
 
-/*
-	var vid1 = strs[0];
-	var vid2 = strs[1];*/
-
     // Get the whole Fusion table, pull the video name, likes and dislikes.
 	strs = getCheckedBoxes();
     var query = "SELECT * FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv WHERE Video IN ('" + strs[0] +"','"+strs[1] +"')" ;
@@ -66,20 +62,16 @@ function drawChart() {
 		//console.log(data);
 
         view = new google.visualization.DataView(data);
-
-		//gets the array of the boxes checked
-		//strs = getCheckedBoxes();
 		console.log(strs);
-        // set columns of the view based on which buttons are selected
         
-              // if nothing is selected, make a blank column and hide the legend so that a blank graph will be displayed
-            if(strs.length < 1)
-                {
-                    fakeData = google.visualization.arrayToDataTable([
-                        ['Video', 'dummy likes', 'dummy dislikes'],
-                        ['Video 1', 0, 0],
-                           ['Video 2', 0, 0],
-                        ]);
+    // if nothing is selected, make a blank column and hide the legend so that a blank graph will be displayed
+    if(strs.length < 1)
+            {
+                fakeData = google.visualization.arrayToDataTable([
+                    ['Video', 'dummy likes', 'dummy dislikes'],
+                    ['Video 1', 0, 0],
+                    ['Video 2', 0, 0],
+                    ]);
                     options.legend = {position: 'none'};
                     options.vAxis.minValue = 0;
                     options.vAxis.maxValue = 100000;
@@ -117,7 +109,22 @@ function getCheckedBoxes()
             strArr[strArr.length] = boxList[i].name;
         }
     }
+        if(strArr.length < 2)
+            {
+				strArr = [];
+                }
     return strArr;
 }
 
+/**
+ * getWinner
+ * 
+ * returns the string of who won the showdown
+ *  
+ */
+function getWinner() {
+	
+	document.getElementById
+	
+}
 window.onresize = function(){ location.reload(); };
