@@ -21,7 +21,7 @@ function drawChart() {
 
     // Get the whole Fusion table, pull the video name, likes and dislikes.
 
-    var query = "SELECT Video, Likes, Dislikes FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv";
+    var query = "SELECT Video, Likes, Dislikes FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv WHERE Video IN ('Friday', 'Wrecking Ball')";
     var opts = { sendMethod: 'auto' };
     var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
 
@@ -42,7 +42,7 @@ function drawChart() {
 
 		},
 		hAxis : {
-		    title : "Number of Likes/Dislikes (in millions)",
+		    title : "Number of Likes/Dislikes",
 		},
 		legend : {
 		    position : "none"
@@ -135,6 +135,7 @@ function getCheckedBoxes()
  * @param {Object} array - the array of names that have their boxes checked
  * @param {Object} view - the view we are working with to draw on
  */
+/*
 function translateToColNums(array, view)
 {
     //initialize variables
@@ -167,6 +168,7 @@ function translateToColNums(array, view)
     }
 
     return newArray;
-}
+}*/
+
 
 window.onresize = function(){ location.reload(); };
