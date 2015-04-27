@@ -68,7 +68,7 @@ function drawChart() {
     if(strs.length < 1)
             {
                 fakeData = google.visualization.arrayToDataTable([
-                    ['Video', 'dummy likes', 'dummy dislikes'],
+                    ['Video', 'Likes', 'Dislikes'],
                     ['Video 1', 0, 0],
                     ['Video 2', 0, 0],
                     ]);
@@ -81,8 +81,9 @@ function drawChart() {
         // draw the view
         var chart = new google.visualization.BarChart(document.getElementById('viz_div'));
         chart.draw(view.toDataTable(), options);
-
+	
     })
+    
 }
 
 /**
@@ -123,8 +124,31 @@ function getCheckedBoxes()
  *  
  */
 function getWinner() {
-	
-	document.getElementById
-	
+	strs = getCheckedBoxes();
+	var vid1 = strs[0];
+	var vid2 = strs[1];
+	var winner = document.getElementsByClassName("winner");
+	//names of videos in order of most to least disliked
+	var winnerArr = [
+	"Baby",
+	"Friday",
+	"Wrecking Ball",
+	"Anaconda",
+	"Dark Horse",
+	"The Fox",
+	"Bound 2",
+	"Shake It Off",
+	"All About That Bass",
+	"Never Gonna Give You Up"
+	]
+	//console.log(winnerArr);
+	for(var i = 0;i<winnerArr.length;i++){
+		if(winnerArr[i] == vid1) return vid1;
+		
+		if(winnerArr[i] == vid2) return vid2;
+	}
+console.log(winner);
+
 }
+
 window.onresize = function(){ location.reload(); };
