@@ -1,5 +1,6 @@
 /**
  * checkBox.js
+
  *
  * this file contains a function to set the limit of the number of checkboxes on the page
  * no more than two boxes should be able to be selected, as that would throw off our query.
@@ -7,6 +8,15 @@
  * based on group C1's code, found here
  * https://github.com/trowbrid16/CS-441-Project
  *
+
+ *
+ * this file contains a function to set the limit of the number of checkboxes on the page
+ * no more than two boxes should be able to be selected, as that would throw off our query.
+ *
+ * based on group C1's code, found here
+ * https://github.com/trowbrid16/CS-441-Project
+ *
+
  */
 
 function checkBoxLimit(){

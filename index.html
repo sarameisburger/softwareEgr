@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8">
+		<title>Celebrity Smackdown</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+		<script type="text/javascript" src="viz.js" ></script>
+		<script type="text/javascript" src="checkBox.js"></script>
+
+	</head>
+
+	<body>
+		<section class="page-header">
+			<h1 class="project-name">Youtube Voting Visualizer: Celebrity Smackdown </h1>
+			<h2 class="project-tagline">Select two videos to put in the "ring"
+			<p>Whoever has the most dislikes is the smackdown champion</p></h2>
+
+			<!-- <a href="https://github.com/sarameisburger/softwareEgr" class="btn">View on GitHub</a>
+			<a href="https://github.com/sarameisburger/softwareEgr/zipball/master" class="btn">Download .zip</a>
+			<a href="https://github.com/sarameisburger/softwareEgr/tarball/master" class="btn">Download .tar.gz</a> -->
+
+		</section>
+		<!-- making the buttons to choose the videos -->
+		<div id="wrapper">
+			<!--wrapper so left and right buttons stay on same horizontal line -->
+
+			<!--making a graph box to hold the buttons-->
+			<!--choose a challenger text, put in a wrapper div to keep on same horizontal level-->
+			<div class = "challengerText">
+				<div class="chooseVidM">
+					Select Two Challengers
+				</div>
+			</div>
+
+			<!-- making picture buttons with appropriate imgur urls-->
+			<div class = "buttonDiv">
+				<button class="btn">button</button>
+				<table class="buttonsL">
+					<td><button type="button"><img src="http://i.imgur.com/2IB885w.png"/></button></td>
+					<td><button type="button"><img src="http://i.imgur.com/yXJBpl8.png"/></button></td>
+					<td><button type="button"><img src="http://i.imgur.com/R4owuDv.png" /></button></td>
+					<td><button type="button"><img src="http://i.imgur.com/hsAbIFP.png" /></button></td>
+					<td><button type="button"><img src="http://i.imgur.com/FcI1SRP.png" /></button></td>
+
+					<tr>
+						<td><input type="checkbox" class="cbox" name="Anaconda" onclick="checkBoxLimit()">Nicki Minaj: Anaconda</input></td>
+						<td><input type="checkbox" class="cbox" name="Wrecking Ball" onclick="checkBoxLimit()">Miley Cyrus: Wrecking Ball</input></td>
+						<td><input type="checkbox" class="cbox" name="The Fox" onclick="checkBoxLimit()">Ylvis: The Fox</input></td>
+						<td><input type="checkbox" class="cbox" name="Shake It Off" onclick="checkBoxLimit()">Taylor Swift: Shake It Off</input></td>
+						<td><input type="checkbox" class="cbox" name="Baby" onclick="checkBoxLimit()">Justin Bieber: Baby</input></td>
+					</tr>
+					</tr>
+					<tr>
+						<td><button type="button"><img src="http://i.imgur.com/9OUOqwn.pngg" /></button></td>
+						<td><button type="button"><img src="http://i.imgur.com/am6wTlY.png" /></button></td>
+						<td><button type="button"><img src="http://i.imgur.com/YAd9pPt.png" /></button></td>
+						<td><button type="button"><img src="http://i.imgur.com/hKTlKdB.png" /></button></td>
+						<td><button type="button"><img src="http://i.imgur.com/VH5zNan.png"/></button></td>
+					<tr>
+						<td><input type="checkbox" class="cbox" name='Friday' onclick="checkBoxLimit()">Rebecca Black: Friday</input></td>
+						<td><input type="checkbox" class="cbox" name='Bound 2' onclick="checkBoxLimit()">Kayne West: Bound 2</input></td>
+						<td><input type="checkbox" class="cbox" name='All About That Bass' onclick="checkBoxLimit()">Megan Trainor: All About That Bass</input></td>
+						<td><input type="checkbox" class="cbox" name='Dark Horse' onclick="checkBoxLimit()">Katy Perry: Dark Horse</input></td>
+						<td><input type="checkbox" class="cbox" name='Never Gonna Give You Up' onclick="checkBoxLimit()">Rick Roll: Never Gonna Give You Up</input></td>
+
+				</table>
+
+			</div>
+
+			<div id="viz_div" style="height: 700px; width: 1600px;"></div>
+
+			<!--declaring a winner, "winnerDeclared" is set "winner" changes based on who wins-->
+		<div class="winnerDeclared">
+				The winner of the smackdown is:
+			</div>
+      <!--get winner from viz.js and print it to screen -->
+		<div id="winner"></div>
+		</div>
+
+	</body>
+
+<section class="main-content">
+	<h3><a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a></h3>
+	</section>
+	</html>

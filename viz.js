@@ -91,6 +91,9 @@ function drawChart() {
 
     //get the winner of the dislike battle EVERY TIME the chart is redrawn (aka new video selected)
  	getWinner();
+
+    //get the winner of the dislike battle EVERY TIME the chart is redrawn (aka new video selected)
+ 	getWinner();
 }
 
 /**
@@ -98,7 +101,11 @@ function drawChart() {
  *
  *  this function finds the boxes that are checked on the page,
  * helps query the fusion table to only the two checked videos.
+<<<<<<< HEAD
  *
+=======
+ *
+>>>>>>> FETCH_HEAD
  * code based off of group C1's code to see which streets are selected.
  */
 function getCheckedBoxes()
