@@ -156,13 +156,13 @@ function getWinner() {
 		if(winnerArr[i] == vid1) {
 			champion=vid1;
 			winner.innerHTML = vid1;
-			console.log(champion);
+			//console.log(champion);
 			return;
 		}
 		if(winnerArr[i] == vid2){
 			champion=vid2;
 			winner.innerHTML = vid2;
-			console.log(champion);
+			//console.log(champion);
 			return;
 		}
 	}
