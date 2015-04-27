@@ -7,7 +7,7 @@
  *
  * https://developers.google.com/chart/interactive/docs/gallery/columnchart#Examples
  * https://github.com/crenshaw/thelibrarians/tree/master/simple
- * 
+ *
  * referenced group C1's code for function on checking which videos were selected.
  * https://github.com/trowbrid16/CS-441-Project
  *
@@ -24,7 +24,7 @@ function drawChart() {
 
     // Get the boxes that are checked BEFORE the chart is drawn
 	strs = getCheckedBoxes();
-	
+
 	//query the entire fusion table, for our specific videos that are checked
     var query = "SELECT * FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv WHERE Video IN ('" + strs[0] +"','"+strs[1] +"')" ;
     var opts = { sendMethod: 'auto' };
@@ -66,10 +66,10 @@ function drawChart() {
         data = e.getDataTable();
 
         view = new google.visualization.DataView(data);
-		
+
 		//log strs to see what videos are checked
 		console.log(strs);
-        
+
     // if nothing is selected, make a blank graph
     if(strs.length < 1)
             {
@@ -83,11 +83,11 @@ function drawChart() {
                     options.vAxis.maxValue = 100000;
                     view = new google.visualization.DataView(fakeData);
                 }
-        
+
         // draw the view
         var chart = new google.visualization.BarChart(document.getElementById('viz_div'));
         chart.draw(view.toDataTable(), options);
-	
+
     })
     //get the winner of the dislike battle EVERY TIME the chart is redrawn (aka new video selected)
  getWinner();   
@@ -125,19 +125,19 @@ function getCheckedBoxes()
 
 /**
  * getWinner
- * 
+ *
  * returns the string of who won the showdown.
- *  
+ *
  */
 function getWinner() {
 	strs = getCheckedBoxes();
 	var vid1 = strs[0];
 	var vid2 = strs[1];
-	
-	
+
+
 	var winner = document.getElementById("winner");
 	var champion;
-	
+
 	//names of videos in order of most to least disliked
 	var winnerArr = [
 	"Baby",
