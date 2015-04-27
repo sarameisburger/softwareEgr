@@ -127,7 +127,7 @@ function getWinner() {
 	strs = getCheckedBoxes();
 	var vid1 = strs[0];
 	var vid2 = strs[1];
-	var winner = document.getElementsByClassName("winner");
+	var winner = document.getElementById('winner');
 	//names of videos in order of most to least disliked
 	var winnerArr = [
 	"Baby",
@@ -143,11 +143,15 @@ function getWinner() {
 	]
 	//console.log(winnerArr);
 	for(var i = 0;i<winnerArr.length;i++){
-		if(winnerArr[i] == vid1) return vid1;
-		
-		if(winnerArr[i] == vid2) return vid2;
+		if(winnerArr[i] == vid1) {
+			return vid1;
+			winner.innerHTML = vid1;
+		}
+		if(winnerArr[i] == vid2){
+			return vid2;
+			winner.innerHTML = vid2;
+		}
 	}
-console.log(winner);
 
 }
 
