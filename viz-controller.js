@@ -25,6 +25,7 @@ viz.controller('ButtonController', ['$scope',
 function($scope) {
 
 	    // Create the chart object
+/*
 	    $scope.chart= new google.visualization.BarChart(document.getElementById('viz_div'));    
 	    var data;
 
@@ -63,7 +64,8 @@ function($scope) {
 		    console.log(data);
 		    
 		    $scope.chart.draw(data, options);
-		});
+		});*/
+
 
 // ************************************************************************
 // Controller functions

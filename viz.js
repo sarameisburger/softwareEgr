@@ -42,7 +42,7 @@ function drawChart() {
 
 		},
 		hAxis : {
-		    title : "Likes vs. Dislikes",
+		    title : "Number of Likes/Dislikes (in millions)",
 		},
 		legend : {
 		    position : "none"
@@ -59,7 +59,7 @@ function drawChart() {
     queryObj.send(function (e) {
 
         data = e.getDataTable();
-		console.log(data);
+		//console.log(data);
 
         view = new google.visualization.DataView(data);
 
@@ -69,31 +69,32 @@ function drawChart() {
         var strs = getCheckedBoxes();
         
         //takes that array and translates this into column numbers
+        /*
         var colNums = translateToColNums(strs, view);
-        view.setColumns(colNums);
-
-        // only show headers and rows for the vids, likes, dislikes?
-        view.setRows([0,1, 2]);
-
-        // if nothing is selected, make a blank column and hide the legend so that a blank graph will be displayed
-        if(colNums.length < 2)
-        {
-            fakeData = google.visualization.arrayToDataTable([
-                ['Video', 'dummy likes', 'dummy dislikes'],
-                ['Video 1', 10, 4],
-           		['Video 2', 3, 5],
-                ]);
-            options.legend = {position: 'none'};
-            options.vAxis.minValue = 0;
-            options.vAxis.maxValue = 100000;
-            view = new google.visualization.DataView(fakeData);
-        }
-
-
+                //view.setColumns(strs[0], strs[1]);
+        
+                // only show headers and rows for the vids, likes, dislikes?
+                view.setRows([0,1, 2]);
+        
+                // if nothing is selected, make a blank column and hide the legend so that a blank graph will be displayed
+                if(colNums.length < 2)
+                {
+                    fakeData = google.visualization.arrayToDataTable([
+                        ['Video', 'dummy likes', 'dummy dislikes'],
+                        ['Video 1', 0, 0],
+                           ['Video 2', 0, 0],
+                        ]);
+                    options.legend = {position: 'none'};
+                    options.vAxis.minValue = 0;
+                    options.vAxis.maxValue = 100000;
+                    view = new google.visualization.DataView(fakeData);
+                }
+        
+        */
+        
         // draw the view
         var chart = new google.visualization.BarChart(document.getElementById('viz_div'));
-        
-        chart.draw(view, options);
+        chart.draw(view.toDataTable(), options);
 
     })
 }
