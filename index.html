@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us" ng-app="viz">
+<html lang="en-us">
 	<head>
 		<meta charset="UTF-8">
 		<title>Celebrity Smackdown</title>
@@ -12,7 +12,6 @@
 
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
 		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-		<script type="text/javascript" src="viz-controller.js" ></script>
 		<script type="text/javascript" src="viz.js" ></script>
 		<script type="text/javascript" src="checkBox.js"></script>
 
@@ -44,7 +43,7 @@
 
 			<!-- making picture buttons with appropriate imgur urls, need to implement bootstrap -->
 			<!--<div class="videoButtonL" style="padding-left: 150px"> -->
-			<div class = "buttonDiv" ng-controller='ButtonController'>
+			<div class = "buttonDiv">
 				<button class="btn">button</button>
 				<table class="buttonsL">
 					<td><button type="button"><img src="http://i.imgur.com/2IB885w.png"/></button></td>
@@ -56,7 +55,7 @@
 					<tr>
 						<td><input type="checkbox" class="cbox" name="Anaconda" onclick="checkBoxLimit()">Nicki Minaj: Anaconda</input></td>
 						<td><input type="checkbox" class="cbox" name="Wrecking Ball" onclick="checkBoxLimit()">Miley Cyrus: Wrecking Ball</input></td>
-						<td><input type="checkbox" class="cbox" name="The Fox" onclick="checkBoxLimit()">What Does the Fox Say</input></td>
+						<td><input type="checkbox" class="cbox" name="The Fox" onclick="checkBoxLimit()">Ylvis: The Fox</input></td>
 						<td><input type="checkbox" class="cbox" name="Shake It Off" onclick="checkBoxLimit()">Taylor Swift: Shake It Off</input></td>
 						<td><input type="checkbox" class="cbox" name="Baby" onclick="checkBoxLimit()">Justin Bieber: Baby</input></td>
 					</tr>
