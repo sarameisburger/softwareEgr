@@ -1,7 +1,6 @@
 /*
  * viz.js
  *
- *
  * Initial code based on an example provided in the Google Charts API
  * documentation and Dr. Crenshaw's Librarians' project.  See:
  *
@@ -9,15 +8,16 @@
  * https://github.com/crenshaw/thelibrarians/tree/master/simple
  *
  * referenced group C1's code for function on checking which videos were selected.
- * https://github.com/trowbrid16/CS-441-Project
+ * https://github.com/trowbrid16/CS-441-Project --> Casey Siegelman
  *
  * @author: Elise Sunderland, Daniel Hollowell, Sara Meisburger
- * @since: April 25, 2015
+ * @since: April 27, 2015
  */
 
 google.load('visualization', '1', { packages: ['corechart'] });
 google.setOnLoadCallback(drawChart);
 
+//initialize the value of strs to be the two video checkboxes that are selected
 var strs = getCheckedBoxes();
 
 function drawChart() {
@@ -64,13 +64,12 @@ function drawChart() {
     queryObj.send(function (e) {
 
         data = e.getDataTable();
-
         view = new google.visualization.DataView(data);
 
 		//log strs to see what videos are checked
 		console.log(strs);
 
-    // if nothing is selected, make a blank graph
+    // if nothing is selected, make a blank graph as a placeholder
     if(strs.length < 1)
             {
                 fakeData = google.visualization.arrayToDataTable([
@@ -89,8 +88,9 @@ function drawChart() {
         chart.draw(view.toDataTable(), options);
 
     })
+    
     //get the winner of the dislike battle EVERY TIME the chart is redrawn (aka new video selected)
- getWinner();   
+ 	getWinner();   
 }
 
 /**
@@ -98,10 +98,12 @@ function drawChart() {
  *
  *  this function finds the boxes that are checked on the page,
  * helps query the fusion table to only the two checked videos.
+ * 
+ * code based off of group C1's code to see which streets are selected.
  */
 function getCheckedBoxes()
 {
-    var strArr = [];
+    var stringArr = [];
     //retrieve all boxes
     var boxList = document.getElementsByClassName("cbox");
 
@@ -112,15 +114,15 @@ function getCheckedBoxes()
     	//keep a count of the number of checked boxes
         if(boxList[i].checked)
         {
-        	//make strArr the same as the box list
-            strArr[strArr.length] = boxList[i].name;
+        	//make stringArr the same as the box list
+            stringArr[stringArr.length] = boxList[i].name;
         }
     }
-        if(strArr.length < 2)
+        if(stringArr.length < 2)
             {
-				strArr = [];
+				stringArr = [];
                 }
-    return strArr;
+    return stringArr;
 }
 
 /**
@@ -149,24 +151,21 @@ function getWinner() {
 	"Bound 2",
 	"Shake It Off",
 	"All About That Bass",
-	"Never Gonna Give You Up"
-	]
+	"Never Gonna Give You Up"]
 
+	//go through the list of 'winners' and see if our strings match up with it, return the one that is seen first
 	for(var i = 0;i<winnerArr.length;i++){
 		if(winnerArr[i] == vid1) {
 			champion=vid1;
 			winner.innerHTML = vid1;
-			//console.log(champion);
 			return;
 		}
 		if(winnerArr[i] == vid2){
 			champion=vid2;
 			winner.innerHTML = vid2;
-			//console.log(champion);
 			return;
 		}
 	}
-
 }
 
 window.onresize = function(){ location.reload(); };
