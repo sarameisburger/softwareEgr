@@ -9,11 +9,11 @@
  * @date 4/20/15
  */
 
-/*
+
 google.load('visualization', '1', {packages: ['corechart']});
 google.setOnLoadCallback(function() {
 	angular.bootstrap(document.body, ['viz']);
-    });*/
+    });
 
 
 //make sure to use proper import statements in the html to get the angular working properly
@@ -25,17 +25,12 @@ viz.controller('ButtonController', ['$scope',
 function($scope) {
 
 	    // Create the chart object
-
-	    $scope.chart= new google.visualization.BarChart(document.getElementById('viz_div'));
-
-/*
-	    $scope.chart= new google.visualization.BarChart(document.getElementById('viz_div'));
->>>>>>> FETCH_HEAD
+	    $scope.chart= new google.visualization.BarChart(document.getElementById('viz_div'));    
 	    var data;
 
 	    // Specify the options for the chart
-	    var options = {
-		title : "Likes vs. Dislikes for Popular Music Videos",
+	    var options = {	
+		title : "Likes vs. Dislikes for Popular Videos",
 		titleFontSize : 12,
 		isStacked: true,
 		bar : {
@@ -43,34 +38,32 @@ function($scope) {
 		},
 		vAxis : {
 		    title : "Video",
-
+		    
 		},
 		hAxis : {
-		    title : "Likes vs. Dislikes",
+		    title : "Likes vs. Disliked",
 		},
 		legend : {
 		    position : "none"
 		}
 	    };
-
+	    
 	    var query =  "SELECT Video, Likes, Dislikes FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv";
 	    var opts = {sendMethod: 'auto'};
 	    var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
-
+	    	    
 	    var views = {};
-
+	    
 	    queryObj.setQuery(query);
-
+	    
 	    // Do the work of getting the initial graph.
-	    queryObj.send(function(e) {
-
+	    queryObj.send(function(e) { 
+		    
 		    data = e.getDataTable();
 		    console.log(data);
-
+		    
 		    $scope.chart.draw(data, options);
 		});
-*/
-
 
 // ************************************************************************
 // Controller functions

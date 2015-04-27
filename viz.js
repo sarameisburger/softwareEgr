@@ -64,7 +64,11 @@ function drawChart() {
         view = new google.visualization.DataView(data);
 
         // set columns of the view based on which buttons are selected
+        
+        //gets the array of the boxes checked
         var strs = getCheckedBoxes();
+        
+        //takes that array and translates this into column numbers
         var colNums = translateToColNums(strs, view);
         view.setColumns(colNums);
 
@@ -76,8 +80,8 @@ function drawChart() {
         {
             fakeData = google.visualization.arrayToDataTable([
                 ['Video', 'dummy likes', 'dummy dislikes'],
-                ['Video 1', 0, 0],
-           		['Video 2', 0, 0],
+                ['Video 1', 10, 4],
+           		['Video 2', 3, 5],
                 ]);
             options.legend = {position: 'none'};
             options.vAxis.minValue = 0;
