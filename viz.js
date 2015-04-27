@@ -21,6 +21,7 @@ function drawChart() {
 
     // Get the whole Fusion table, pull the video name, likes and dislikes.
 	strs = getCheckedBoxes();
+	
     var query = "SELECT * FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv WHERE Video IN ('" + strs[0] +"','"+strs[1] +"')" ;
     var opts = { sendMethod: 'auto' };
     var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
@@ -83,7 +84,7 @@ function drawChart() {
         chart.draw(view.toDataTable(), options);
 	
     })
-    
+ getWinner();   
 }
 
 /**
@@ -124,13 +125,13 @@ function getCheckedBoxes()
  */
 function getWinner() {
 	strs = getCheckedBoxes();
-	//var vid1 = strs[0];
-//	var vid2 = strs[1];
-	var vid1 = "Baby";
-	var vid2 = "The Fox";
-	var winner = document.getElementById('winner');
+	var vid1 = strs[0];
+	var vid2 = strs[1];
+	
+	
+	var winner = document.getElementById("winner");
 	var champion;
-	console.log("Looking for the winner between"+strs);
+	
 	//names of videos in order of most to least disliked
 	var winnerArr = [
 	"Baby",
@@ -144,21 +145,21 @@ function getWinner() {
 	"All About That Bass",
 	"Never Gonna Give You Up"
 	]
-	//console.log(winnerArr);
+
 	for(var i = 0;i<winnerArr.length;i++){
 		if(winnerArr[i] == vid1) {
 			champion=vid1;
 			winner.innerHTML = vid1;
-			return champion;
+			console.log(champion);
+			return;
 		}
 		if(winnerArr[i] == vid2){
 			champion=vid2;
 			winner.innerHTML = vid2;
-			return champion;
+			console.log(champion);
+			return;
 		}
 	}
-	champion = "Jbeeebs";
-	return champion;
 
 }
 
