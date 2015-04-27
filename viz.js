@@ -95,7 +95,6 @@ function drawChart() {
 function getCheckedBoxes()
 {
     var strArr = [];
-
     //retrieve all boxes
     var boxList = document.getElementsByClassName("cbox");
 
@@ -125,9 +124,13 @@ function getCheckedBoxes()
  */
 function getWinner() {
 	strs = getCheckedBoxes();
-	var vid1 = strs[0];
-	var vid2 = strs[1];
+	//var vid1 = strs[0];
+//	var vid2 = strs[1];
+	var vid1 = "Baby";
+	var vid2 = "The Fox";
 	var winner = document.getElementById('winner');
+	var champion;
+	console.log("Looking for the winner between"+strs);
 	//names of videos in order of most to least disliked
 	var winnerArr = [
 	"Baby",
@@ -144,14 +147,18 @@ function getWinner() {
 	//console.log(winnerArr);
 	for(var i = 0;i<winnerArr.length;i++){
 		if(winnerArr[i] == vid1) {
-			return vid1;
+			champion=vid1;
 			winner.innerHTML = vid1;
+			return champion;
 		}
 		if(winnerArr[i] == vid2){
-			return vid2;
+			champion=vid2;
 			winner.innerHTML = vid2;
+			return champion;
 		}
 	}
+	champion = "Jbeeebs";
+	return champion;
 
 }
 
