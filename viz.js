@@ -7,8 +7,11 @@
  *
  * https://developers.google.com/chart/interactive/docs/gallery/columnchart#Examples
  * https://github.com/crenshaw/thelibrarians/tree/master/simple
+ * 
+ * referenced group C1's code for function on checking which videos were selected.
+ * https://github.com/trowbrid16/CS-441-Project
  *
- * @author: Elise Sunderland, Sara Meisburger, Casey Siegelman
+ * @author: Elise Sunderland, Daniel Hollowell, Sara Meisburger
  * @since: April 25, 2015
  */
 
@@ -19,14 +22,15 @@ var strs = getCheckedBoxes();
 
 function drawChart() {
 
-    // Get the whole Fusion table, pull the video name, likes and dislikes.
+    // Get the boxes that are checked BEFORE the chart is drawn
 	strs = getCheckedBoxes();
 	
+	//query the entire fusion table, for our specific videos that are checked
     var query = "SELECT * FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv WHERE Video IN ('" + strs[0] +"','"+strs[1] +"')" ;
     var opts = { sendMethod: 'auto' };
     var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
 
-    // Set the options for the chart to be drawn.  This include the
+    // Set the options for the chart to be drawn.  This includes the
     // width, height, title, horizontal axis, vertical axis.
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
@@ -60,12 +64,13 @@ function drawChart() {
     queryObj.send(function (e) {
 
         data = e.getDataTable();
-		//console.log(data);
 
         view = new google.visualization.DataView(data);
+		
+		//log strs to see what videos are checked
 		console.log(strs);
         
-    // if nothing is selected, make a blank column and hide the legend so that a blank graph will be displayed
+    // if nothing is selected, make a blank graph
     if(strs.length < 1)
             {
                 fakeData = google.visualization.arrayToDataTable([
@@ -84,6 +89,7 @@ function drawChart() {
         chart.draw(view.toDataTable(), options);
 	
     })
+    //get the winner of the dislike battle EVERY TIME the chart is redrawn (aka new video selected)
  getWinner();   
 }
 
@@ -120,7 +126,7 @@ function getCheckedBoxes()
 /**
  * getWinner
  * 
- * returns the string of who won the showdown
+ * returns the string of who won the showdown.
  *  
  */
 function getWinner() {
