@@ -13,15 +13,19 @@
  */
 
 google.load('visualization', '1', { packages: ['corechart'] });
-
 google.setOnLoadCallback(drawChart);
 
+var strs = getCheckedBoxes();
 
 function drawChart() {
 
-    // Get the whole Fusion table, pull the video name, likes and dislikes.
+/*
+	var vid1 = strs[0];
+	var vid2 = strs[1];*/
 
-    var query = "SELECT Video, Likes, Dislikes FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv WHERE Video IN ('Friday', 'Wrecking Ball')";
+    // Get the whole Fusion table, pull the video name, likes and dislikes.
+	strs = getCheckedBoxes();
+    var query = "SELECT * FROM 1-sWkUfT7EbkVOUqfv95polj4Gr-O3zpNCFxv3unv WHERE Video IN ('" + strs[0] +"','"+strs[1] +"')" ;
     var opts = { sendMethod: 'auto' };
     var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
 
@@ -63,21 +67,13 @@ function drawChart() {
 
         view = new google.visualization.DataView(data);
 
+		//gets the array of the boxes checked
+		//strs = getCheckedBoxes();
+		console.log(strs);
         // set columns of the view based on which buttons are selected
         
-        //gets the array of the boxes checked
-        var strs = getCheckedBoxes();
-        
-        //takes that array and translates this into column numbers
-        /*
-        var colNums = translateToColNums(strs, view);
-                //view.setColumns(strs[0], strs[1]);
-        
-                // only show headers and rows for the vids, likes, dislikes?
-                view.setRows([0,1, 2]);
-        
-                // if nothing is selected, make a blank column and hide the legend so that a blank graph will be displayed
-                if(colNums.length < 2)
+              // if nothing is selected, make a blank column and hide the legend so that a blank graph will be displayed
+            if(strs.length < 1)
                 {
                     fakeData = google.visualization.arrayToDataTable([
                         ['Video', 'dummy likes', 'dummy dislikes'],
@@ -89,8 +85,6 @@ function drawChart() {
                     options.vAxis.maxValue = 100000;
                     view = new google.visualization.DataView(fakeData);
                 }
-        
-        */
         
         // draw the view
         var chart = new google.visualization.BarChart(document.getElementById('viz_div'));
@@ -125,50 +119,5 @@ function getCheckedBoxes()
     }
     return strArr;
 }
-
-/**
- * translateToColNums
- *
- *
- * This function should return the total number of columns for our bar graph
- *
- * @param {Object} array - the array of names that have their boxes checked
- * @param {Object} view - the view we are working with to draw on
- */
-/*
-function translateToColNums(array, view)
-{
-    //initialize variables
-    var str;
-    var colNum;
-    // initialize newArray so that the video column will be first
-    var newArray = [0];
-
-    //loop through the array of video names
-    for(var i = 0; i < array.length; i++)
-    {
-        str = array[i];
-        colNum = -1;
-
-        //get the column number for a given string, aka the checked box
-        for(var j = 0; j < view.getNumberOfColumns(); j++)
-        {
-            if(str == view.getColumnLabel(j))
-            {
-                colNum = j;
-            }
-        }
-
-        //if we found it, add it to the new array
-        if(colNum != -1)
-        {
-            newArray[newArray.length] = colNum;
-        }
-
-    }
-
-    return newArray;
-}*/
-
 
 window.onresize = function(){ location.reload(); };
